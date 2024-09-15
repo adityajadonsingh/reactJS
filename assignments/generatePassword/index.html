@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="card w-2/5 border rounded px-5 py-8">
+        <h1 class="heading text-center font-bold text-3xl text-white">Password Generator</h1>
+        <hr class="my-5">
+        <div class="flex gap-x-2">
+            <div class="text-area w-4/5">
+                <input type="text" class="w-full border rounded px-2 py-1 password">
+            </div>
+            <div class="btn w-1/5">
+                <button onclick="copyText();" class="copy rounded flex h-full justify-center items-center w-full"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2"/>
+                  </svg></button>
+            </div>
+            
+        </div>
+        <div class="choose w-full mt-4 mb-4">
+            <div class="input text-white flex items-center mb-2">
+                <span class="label w-2/6">Password Length* :</span>
+                <input type="text" class="w-1/5 rounded ms-2 px-2 py-1 border length" placeholder="8 - 16 only">
+            </div>
+            <div class="input text-white flex items-center mb-2">
+                <span class="label w-2/6">Include Uppercase :</span>
+                <input type="checkbox" class="checkbox rounded ms-2 px-2 py-1 upper">
+            </div>
+            <div class="input text-white flex items-center mb-2">
+                <span class="label w-2/6">Include Lowercase :</span>
+                <input type="checkbox" class="checkbox rounded ms-2 px-2 py-1 lower">
+            </div>
+            <div class="input text-white flex items-center mb-2">
+                <span class="label w-2/6">Include Numbers :</span>
+                <input type="checkbox" class="nums checkbox rounded ms-2 px-2 py-1 ">
+            </div>
+            <div class="input text-white flex items-center mb-2">
+                <span class="label w-2/6">Include Symbols :</span>
+                <input type="checkbox" class="checkbox rounded ms-2 px-2 py-1 symbols">
+            </div>
+        </div>
+        <div class="generate-Btn w-full ">
+            <button class="rounded text-center w-full py-3 font-bold text-lg" onclick="generatePassword();">Generate Password</button>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
