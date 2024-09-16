@@ -37,13 +37,11 @@ const Card = () => {
         <div className="card">
             <div className="name">Name: {name}</div>
             <div className="designation ">Designation : {designation}</div>
-            <div className="name">Address : {address}</div>
+            <div className="address">Address : {address}</div>
         </div>
     )
 }
 
-
 root.render(
-    // <Heading />,
     <Card/>
 )
