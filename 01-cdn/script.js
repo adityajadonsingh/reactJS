@@ -2,17 +2,19 @@
 
 const rootDiv = document.querySelector("#root");
 const root = ReactDOM.createRoot(rootDiv);
-const Name = React.createElement("div", { className: "name" }, "Aditya Jadon");
-const designation = React.createElement("div", { className: "designation" }, "Full Stack Devloper");
-const address = React.createElement("div", { className: "address" }, "Palam Vihar");
-const card = React.createElement(
+const h1 = React.createElement("div", { className: "heading" }, "React App");
+const firstDiv = React.createElement("div", { className: "para" }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum soluta dignissimos tempore voluptate illum molestiae. Maxime expedita harum magnam cum unde architecto esse aspernatur dicta et, mollitia facilis voluptatibus corporis. Minus necessitatibus omnis distinctio voluptatum officiis laborum voluptatem, recusandae esse?");
+const secondDiv = React.createElement("div", { className: "para" }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum soluta dignissimos tempore voluptate illum molestiae. Maxime expedita harum magnam cum unde architecto esse aspernatur dicta et, mollitia facilis voluptatibus corporis. Minus necessitatibus omnis distinctio voluptatum officiis laborum voluptatem, recusandae esse?");
+const thirdDiv = React.createElement("div", { className: "para" }, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum soluta dignissimos tempore voluptate illum molestiae. Maxime expedita harum magnam cum unde architecto esse aspernatur dicta et, mollitia facilis voluptatibus corporis. Minus necessitatibus omnis distinctio voluptatum officiis laborum voluptatem, recusandae esse?");
+const element = React.createElement(
     "div", 
-    { className: "card" },
-    Name,
-    designation,
-    address
+    { className: "wrapper" },
+    h1,
+    firstDiv,
+    secondDiv,
+    thirdDiv
   );
-root.render(card);
+root.render(element);
 
 
 
