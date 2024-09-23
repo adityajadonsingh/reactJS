@@ -127,7 +127,7 @@
 
     ->  Destructuring props    
 
-        There is also an other method to handle the props in function component with is using    destructure
+        There is also an other method to handle the props in function component with is using destructure
 
         Destructuring props is a convenient way to extract specific properties from the props object directly, making the code more concise and readable. Instead of accessing props via props.propertyName, destructuring allows you to grab the properties you need directly from the function arguments or this.props
 
@@ -139,7 +139,7 @@
             )
         }
 
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  
+        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
         const App = () => {
             return (
@@ -158,16 +158,37 @@
 
         Example : 
 
-        <Card nums={[0, 2, 3, 4, 5]} />
+        <Copyright year={[1,2,3,4,5,6]} nums={[1,2,34,5,6]} details={{userName : "Aditya", age : "23"} }/>
 
-        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
         const Card (props) => {
             return (
-                
+                <p>Coypright {props.nums}, Meta Inc., India</p>
             )
         }
 
-        for() and forEach loop does not work inside jsx but we can use map, filter, etc but to show it we have to return it 
+        In this if we show the props array nums in the component then it will show as a string on screen
 
+        for() and forEach loop does not work inside jsx but we can use map, filter, etc but its necessary to return it 
+
+    -> Object Props
+
+        Example : 
+
+        <Copyright year={[1,2,3,4,5,6]} nums={[1,2,34,5,6]} details={{userName : "Aditya", age : "23"} }/>
+
+        -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+        const Card (props) => {
+            return (
+                <p>Details</p>
+                <p>Name : {props.details?.userName}</p>
+                <p>Age : {props.details?.age}</p>
+            )
+        }   
+
+        In object we have add (?) operator because in react at first when the screen render it shows the props.details undefined but after then the data comes. So, for avoiding the error when have to use (?) operator
+
+        ? operator => it work as if the left side of the ? operator is undefined then the right side will not execute 
 

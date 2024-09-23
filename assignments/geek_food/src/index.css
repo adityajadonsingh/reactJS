@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header{
+  background-color: #111827;
+}
+
+.banner{
+  height: 100vh;
+}
+
+.about{
+  padding: 100px 0;
+}
+
+.about .image-box{
+  height: 70vh;
+
+}
+.about .content{
+  height: 80vh;
+  
+}
+.about .content .box{
+  right: 99%;
+}
+.testimonial{
+  padding-bottom: 100px;
+}
+.footer{
+  background-color: #f3f4f6;
+  padding: 70px 0;
+}
+.pad-per{
+  padding: 0 30%;
+}

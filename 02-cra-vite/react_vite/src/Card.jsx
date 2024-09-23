@@ -1,9 +1,8 @@
-import styles from "./card.module.css"
+import styling from "./card.module.css"
 
 const Card = (props) => {
-    console.log(props.user)
     return (
-        <div className={styles.card}>
+        <div className={styling.card}>
             <img src="" alt="" />
             <h4>Name : {props.user.name}</h4>
             <p>Age : {props.user.age}</p>
