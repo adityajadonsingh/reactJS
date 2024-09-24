@@ -1,0 +1,52 @@
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+header .logo {
+    height: 80px;
+}
+header .logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.nav-item{
+    position: relative;
+}
+.nav-item a{
+    width: 100%;
+    height: 100%;
+}
+.nav-item a::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background: linear-gradient(260deg, #2d155b 0%, #874ef9 100%);
+    top: 110%;
+    left: 0px;
+    -webkit-transform-origin: right;
+    -ms-transform-origin: right;
+    transform-origin: right;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+.nav-item:hover a::before{
+    -webkit-transform-origin: left;
+    -ms-transform-origin: left;
+    transform-origin: left;
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+}
