@@ -19,7 +19,7 @@
   position: relative;
   /* overflow: hidden; */
 }
-.banner:before {
+.banner:before, .edu-exp::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -39,7 +39,7 @@
   margin-left: -5%;
   margin-bottom: 0;
 }
-.banner::after {
+.banner::after, .edu-exp::after {
   content: "";
   position: absolute;
   top: 0;
@@ -62,18 +62,12 @@
 
 .banner .content span {
   font-size: 65px;
-  background: var(--tj-theme-primary);
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#864ff5),
-    to(#ffffff)
-  );
-  background: -o-linear-gradient(to right, #864ff5 0%, #ffffff 100%);
-  background: linear-gradient(to right, #864ff5 0%, #ffffff 100%);
+  background: linear-gradient(to right, #864ff5, #ffffff, #864ff5); /* Ensure a continuous gradient loop */
+  background-size: 300% 100%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: gradient-flow 10s ease-in-out infinite;
 }
 .banner .image-box::before {
   content: "";
@@ -97,7 +91,7 @@
 }
 .banner .image-box .box {
   height: 550px;
-  width: 100%;
+  width: 450px;
   overflow: hidden;
   border-radius: 38px;
   transform: rotate(4.29deg);
@@ -112,6 +106,8 @@
 .banner .image-box .box img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: end;
 }
 
 .social-icns li {
@@ -150,4 +146,293 @@
 }
 .social-icns li:hover::before {
     transform: scale(1.1);
+}
+
+.heading-div h2 {
+  line-height: 65px;
+  background: linear-gradient( to right, #874ff9, #fff, #874ff9 );
+  background-size: 300% 100%;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-flow 10s ease-in-out infinite;
+}
+
+.heading-div p {
+  padding: 0 20%;
+}
+
+.recent-work{
+  padding: 100px 0;
+}
+
+.work-card .wrapper{
+  overflow: hidden;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+.work-card .wrapper:hover{
+  transform: translate3d(0px, -10px, 0px);
+  box-shadow: rgba(184, 186, 189, 0.41) 0px 9px 24px;
+}
+.work-card img{
+  width: 100%;
+  height: auto;
+}
+.work-card .project-name{
+  width: calc(100% - 40px);
+  padding: 20px 15px;
+  bottom: 20px;
+  left: 50%;
+  background: linear-gradient( 260deg, #281351 0%, #8650f4 100% );
+  color: #fff;
+  border-radius: 50px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+  transition: 0.3s;
+  transform: translateX(-50%) translateY(15px);
+  opacity: 0;
+}
+.work-card:hover .project-name{
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.icon-box .icn i{
+  font-size: 45px;
+  color: #8650f4;
+}
+.edu-exp{
+  position: relative;
+  padding: 100px 0;
+
+}
+.exp-card{
+  background-color: #140c1c;
+  border-radius: 20px;
+  padding: 20px 25px;
+  position: relative;
+  z-index: 0;
+}
+.exp-card::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 20px;
+  background: linear-gradient( 260deg, #291453 0%, #814cee 100% );
+}
+.exp-card:hover:before{
+  opacity: 1;
+}
+
+.exp-card .duration{
+  color: #8750f7;
+}
+.exp-card:hover .duration{
+  color: #fff;
+}
+.exp-card .designation, .exp-card .company{
+  color: #fff;
+}
+
+.skills{
+  padding: 100px 0;
+  position: relative;
+}
+.skill-item .wrapper{
+  background-color: #140c1c;
+  border-radius: 20px;
+  width: 100%;
+  height: 180px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  border: none;
+}
+.skill-item .wrapper:hover{
+  background: #27134f;
+  border: 1px solid #8951fb;
+}
+.skill-item img{
+  width: 70px;
+  height: 70px;
+  filter: grayscale(90%);
+  -webkit-filter: grayscale(90%);
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.skill-item .wrapper:hover img{
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.contact-form .heading-div p{
+  padding: 0;
+  text-align: start;
+}
+.contact{
+  padding: 100px 0;
+}
+.contact-form{
+  background-color: #140c1c;
+  border-radius: 20px;
+}
+
+.contact-form .inn input, .contact-form .inn textarea{
+  background-color: #050709;
+  color: #fff;
+  outline: none;
+  border: 1px solid #00000000;
+  transition: 0.3s;
+}
+.contact-form .inn input:focus, .contact-form .inn textarea:focus{
+  border: 1px solid #8650f4;
+}
+.contact-details .icn .inner{
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: #452583;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.contact-details .text a{
+  transition: 0.3s;
+  color: #fff;
+}
+.contact-details .text a:hover{
+  color: #8850fb;
+}
+.nav-btn{
+  border: 1px solid #864ff5;
+  padding: 8px;
+  border-radius: 10px;
+  transition: 0.3s;
+  display: none;
+}
+.nav-btn:focus{
+  border: 1px solid #ffffff;
+  padding: 8px;
+  border-radius: 10px;
+}
+.nav-btn:focus .line.cent{
+  opacity: 0;
+}
+.nav-btn:focus .line.top{
+  transform: rotate(42deg) translate(3px,6px);
+}
+.nav-btn:focus .line.bot{
+  transform: rotate(-42deg) translate(3px,-6px);
+}
+
+
+.nav-btn .line{
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 150% 50%;
+  }
+  100% {
+    background-position: 300% 100%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .banner .content span {
+    font-size: 54px;
+  }
+  .edu-exp .heading-div h2{
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .banner .image-box .box {
+    height: 460px;
+    width: 390px;
+  }
+
+}
+@media screen and (max-width: 991px) {
+  .nav-btn{
+    display: block;
+  }
+  header .nav-list{
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .banner .content span {
+    font-size: 35px;
+    line-height: 70px;
+  }
+  .heading-div p {
+    padding: 0 5%;
+  }
+  .recent-work, .skills, .edu-exp, .contact {
+    padding: 60px 0;
+  }
+  .work-card .project-name{
+    padding: 7px 12px;
+  }
+  .skill-item .wrapper{
+    height: 130px;
+  }
+  .skill-item img {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .banner .content span {
+    font-size: 30px;
+    line-height: 70px;
+  }
+  .icon-box .icn i {
+    font-size: 34px;
+  }
+  .heading-div h2 {
+    line-height: 45px;
+  }
+  .contact-details .icn .inner {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+  .banner .image-box .box {
+    height: 300px;
+    width: 390px;
+  }
+  .banner {
+    padding: 200px 0 40px;
+  }
+  .skill-item .wrapper{
+    height: 100px;
+  }
 }
