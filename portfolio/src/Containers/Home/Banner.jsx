@@ -17,8 +17,8 @@ const Banner = () => {
                   UX Designer
                 </span>
                 <p className="text-white md:text-2xl text-lg md:mt-5 mt-0 lg:pr-5 pr-0 font-normal">
-                  I break down complex user experinece problems to create
-                  integritiy focussed solutions that connect billions of people
+                  I break down complex user experience problems to create
+                  integrity focussed solutions that connect billions of people
                 </p>
                 <div className="flex lg:justify-start justify-center">
                   <Social padding={"mt-10"} />

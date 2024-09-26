@@ -52,7 +52,7 @@ const Skills = () => {
             title={"My Skills"}
             position={"items-center"}
             para={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio maiores voluptatem repellendus pariatur dicta? Nisi ducimus corrupti praesentium!"
+              "Proficient in web development with expertise in React, JavaScript, HTML, CSS, and modern design tools"
             }
           />
           <div className="flex mt-10 flex-wrap justify-center">

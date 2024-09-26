@@ -8,7 +8,7 @@ const ContactForm = () => {
           title={"Let’s work together!"}
           position={"items-start"}
           para={
-            "I design and code beautifully simple things and i love what i do. Just simple like that!"
+            "Get in touch for collaborations, freelance work, or any inquiries about my web design services"
           }
         />
         <form>

@@ -62,7 +62,7 @@ const EduactionExp = () => {
             <div className="wrapper">
               <div className="icon-box flex lg:justify-start justify-center gap-x-4">
                 <div className="icn"><i className="bi bi-laptop"></i></div>
-                <Heading title={"My Experience"} position={"justify-start"} />
+                <Heading title={"Experience"} position={"justify-start"} />
               </div>
               <ul className="mt-10">
                 {
@@ -75,7 +75,7 @@ const EduactionExp = () => {
             <div className="wrapper">
               <div className="icon-box flex lg:justify-start justify-center gap-x-4">
                 <div className="icn"><i className="bi bi-book"></i></div>
-                <Heading title={"My Eduaction"} position={"justify-start"} />
+                <Heading title={"Eduaction"} position={"justify-start"} />
               </div>
               <ul className="mt-10">
                 {

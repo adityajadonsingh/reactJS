@@ -53,7 +53,7 @@ const RecentWork = () => {
             title={"My Recent Works"}
             position={"items-center"}
             para={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita iste ullam impedit reiciendis eaque necessitatibus sed natus fugiat!"
+              "Explore a selection of projects showcasing my expertise in web design, development, and creative solutions"
             }
           />
             <div className="flex lg:mt-16 mt-10 flex-wrap">
