@@ -1,69 +1,68 @@
-import { useState } from 'react'
-import {Chart as ChartJS} from "chart.js/auto"
-import { Pie } from 'react-chartjs-2'
-import Slider from './Slider'
-import './App.css'
+import { useState } from 'react';
+import { Chart as ChartJS } from "chart.js/auto";
+import { Pie } from 'react-chartjs-2';
+import Slider from './Slider';
+import './App.css';
 
 function App() {
-
-  const [homeValue , setHomeValue] = useState(3000);
-  let defaultDownpayment = homeValue / 5;
-  const [downPayment, setdownPayment] = useState(defaultDownpayment);
-  let defaultLoanAmount = homeValue - downPayment;
-  const [loanValue, setLoanValue] = useState(defaultLoanAmount);
+  const [homeValue, setHomeValue] = useState(3000);
+  const [downPayment, setDownPayment] = useState(homeValue / 5);
+  const [loanValue, setLoanValue] = useState(homeValue - downPayment);
   const [year, setYear] = useState(5);
-  const [interestRate, setinterest] = useState(5);
+  const [interestRate, setInterest] = useState(5);
 
   const monthlyPayment = (interest, loanAmount, years) => {
-    let montlyinterest = (interest / 12) / 100 ;
+    let monthlyInterest = (interest / 12) / 100;
     let totalPayment = years * 12;
-    let tmp = montlyinterest * Math.pow((1 + montlyinterest), totalPayment);
-    let tmp2 = Math.pow((1 + montlyinterest), totalPayment) - 1;
+    let tmp = monthlyInterest * Math.pow((1 + monthlyInterest), totalPayment);
+    let tmp2 = Math.pow((1 + monthlyInterest), totalPayment) - 1;
     let ans = loanAmount * (tmp / tmp2);
     return ans.toFixed(2);
   }
 
-  const [monthlyAmount, setmonthlyAmount] = useState(monthlyPayment(interestRate, loanValue, year));
+  const [monthlyAmount, setMonthlyAmount] = useState(monthlyPayment(interestRate, loanValue, year));
 
-
-  const homeHandleChange = (event) =>{
+  const homeHandleChange = (event) => {
     let newHomeValue = Number(event.target.value);
     let newDownPaymentValue = newHomeValue / 5;
     let newLoanValue = newHomeValue - newDownPaymentValue;
+
     setHomeValue(newHomeValue);
-    setdownPayment(newDownPaymentValue);
+    setDownPayment(newDownPaymentValue);
     setLoanValue(newLoanValue);
-    setmonthlyAmount(monthlyPayment(interestRate, newLoanValue, year));
+    setMonthlyAmount(monthlyPayment(interestRate, newLoanValue, year));
   }
-  const downpaymentHandleChange = (event) =>{
+
+  const downpaymentHandleChange = (event) => {
     let newDownPayment = Number(event.target.value);
-    setdownPayment(newDownPayment);
     let newLoanValue = homeValue - newDownPayment;
+    setDownPayment(newDownPayment);
     setLoanValue(newLoanValue);
+    setMonthlyAmount(monthlyPayment(interestRate, newLoanValue, year));
   }
-  const loanValueHandleChange = (event) =>{
+
+  const loanValueHandleChange = (event) => {
     let newLoanValue = Number(event.target.value);
-    let DownPayment = homeValue - newLoanValue;
-    setdownPayment(DownPayment);
+    let downPaymentValue = homeValue - newLoanValue;
+    setDownPayment(downPaymentValue);
     setLoanValue(newLoanValue);
-    setmonthlyAmount(monthlyPayment(interestRate, newLoanValue, year));
+    setMonthlyAmount(monthlyPayment(interestRate, newLoanValue, year));
   }
-  const interestHandleChange = (event) =>{
+
+  const interestHandleChange = (event) => {
     let newInterest = Number(event.target.value);
-    setinterest(newInterest);
-    setmonthlyAmount(monthlyPayment(newInterest, loanValue, year));
+    setInterest(newInterest);
+    setMonthlyAmount(monthlyPayment(newInterest, loanValue, year));
   }
+
   const yearHandleChange = (event) => {
     let newYear = Number(event.target.value);
     setYear(newYear);
-    setmonthlyAmount(monthlyPayment(interestRate, loanValue, newYear));
+    setMonthlyAmount(monthlyPayment(interestRate, loanValue, newYear));
   }
 
-  
-
-  // useEffect(()=>{
-
-  // }, [homeValue, downPayment])
+  const totalPaid = monthlyAmount * year * 12;
+  const totalInterestPaid = totalPaid - loanValue;
 
   return (
     <>
@@ -76,9 +75,9 @@ function App() {
                 <Slider type={"value"} mainHeading={"Home Value"} value={homeValue} handleChange={homeHandleChange} min={1000} max={10000} steps={100} />
                 <Slider type={"value"} mainHeading={"Down Payment"} value={downPayment} handleChange={downpaymentHandleChange} min={0} max={homeValue} steps={10} />
                 <Slider type={"value"} mainHeading={"Loan Value"} value={loanValue} handleChange={loanValueHandleChange} min={0} max={homeValue} steps={10} />
-                <Slider type={"percentage"} mainHeading={"interest Rate"} value={interestRate} handleChange={interestHandleChange} min={2} max={18} steps={1} />
+                <Slider type={"percentage"} mainHeading={"Interest Rate"} value={interestRate} handleChange={interestHandleChange} min={2} max={18} steps={1} />
                 <div className="w-full">
-                  <select onChange={yearHandleChange} className='w-full py-3 outline-none rounded-md px-5 bg-transparent text-white border text-2xl' name="" id="">
+                  <select onChange={yearHandleChange} className='w-full py-3 outline-none rounded-md px-5 bg-transparent text-white border text-2xl'>
                     <option value="5">5 Years</option>
                     <option value="10">10 Years</option>
                     <option value="15">15 Years</option>
@@ -89,12 +88,18 @@ function App() {
               </div>
             </div>
             <div className="w-3/6 h-100 flex ">
-              <div className="rigth-inner p-10 w-full text-center">
-                <h2 className='text-2xl text-white'>Montly Payment: $ {monthlyAmount}</h2>
-                <div className="chart w-full">
+              <div className="right-inner py-10 w-full text-center">
+                <h2 className='text-2xl text-white'>Monthly Payment: $ {monthlyAmount}</h2>
+                <div className="chart w-full flex justify-end mt-10">
                   <Pie
                     data={{
-                      labels : ["Principle", "Interest"]
+                      labels: ["Principal", "Interest"],
+                      datasets: [
+                        {
+                          data: [loanValue, totalInterestPaid],
+                          backgroundColor: ['#36A2EB', '#FF6384'],
+                        }
+                      ]
                     }}
                   />
                 </div>
@@ -104,7 +109,7 @@ function App() {
         </div>
       </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
