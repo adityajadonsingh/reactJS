@@ -1,0 +1,21 @@
+body{
+  background-color: #1e1e1e;
+}
+
+.cart .cart-list .item img{
+  width: auto;
+  height: 100px;
+}
+.count{
+  font-size: 15px;
+  font-weight: 600;
+  width: 25px;
+  height: 25px;
+  background: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  top: -10px;
+  right: -10px;
+}
