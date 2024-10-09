@@ -3,13 +3,24 @@ import Header from "./header";
 import Footer from "./Footer";
 import Content from "./Content";
 import Counter from "./Counter";
+import Panel from "./Panel";
+import { useState } from "react"
 const App = () => {
-
-  return (
+  
+  const [expandId, setExpandId] = useState(1);
+  const handleButton = (id) => {
+    console.log("object")
+    setExpandId(id);
+  }
+  return ( 
     <div>
 
       <Counter/>
-      
+      <div className="accordian">
+        <Panel id={1} expandedId={expandId} handleButton={handleButton}/>
+        <Panel id={2} expandedId={expandId} handleButton={handleButton}/>
+        <Panel id={3} expandedId={expandId} handleButton={handleButton}/>
+      </div>
       <Header/>
       <Content/>
       <Footer/>
