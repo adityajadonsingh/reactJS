@@ -1,3 +1,5 @@
+
+
 import "./App.css";
 import Header from "./header";
 import Footer from "./Footer";
@@ -12,6 +14,13 @@ const App = () => {
     console.log("object")
     setExpandId(id);
   }
+
+  
+  fetch('https://dummyjson.com/products')
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(console.error)
+
   return ( 
     <div>
 
