@@ -1,33 +1,26 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  const getImages = async () => {
+    const para = {
+      Authorization: "A92eIIWL_cMI7dJ4T7hYjAN2Hu7AINnqkAHvVYtrO3I"
+    }
+    const data = await axios.get("https://api.unsplash.com/photos/random/",{
+      params : para
+    })
+    console.log(data)
+  }
+  getImages();
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="container mx-auto">
+        <h1 className='mb-5 text-center text-4xl font-bold'>Infinte Images</h1>
+        <hr />
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

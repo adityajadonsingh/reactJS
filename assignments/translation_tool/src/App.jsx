@@ -11,7 +11,7 @@ function App() {
   const [translatedText, setTranslatedText] = useState("");
 
   useEffect(() => {
-    const languageList = async () => {
+    const languageList = async () => { 
       const options = {
         method: "GET",
         url: "https://google-translate113.p.rapidapi.com/api/v1/translator/support-languages",
@@ -52,7 +52,6 @@ function App() {
 
       try {
         const response = await axios.request(options);
-        console.log(response.data); 
         setTranslatedText(response.data.trans);
       } catch (error) {
         console.error(error);
@@ -63,7 +62,7 @@ function App() {
       postData();
       setBtn(false);
     }
-  }, [clickBtn, fromLanguage, toLanguage, getUserInput]);
+  }, [clickBtn]);
 
   return (
     <>
