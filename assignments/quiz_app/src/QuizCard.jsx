@@ -1,8 +1,6 @@
 const QuizCard = (props) => {
-  console.log(props.question)
   const allAnswers = [props.question.correct_answer, ...props.question.incorrect_answers];
   const shuffleAnswers = allAnswers.sort(() => Math.random() - 0.5);
-  console.log(shuffleAnswers)
   const checkAnswer = (selectedIdx) => {
     if(shuffleAnswers[selectedIdx] === props.question.correct_answer){
       props.setScore(props.score + 1);
@@ -28,7 +26,7 @@ const QuizCard = (props) => {
             <button className="bg-[#5e5ee6] hover:bg-[#6a6add] py-2 px-5 rounded text-white text-lg font-bold" onClick={() => checkAnswer(idx)}>
               {item}
             </button>
-          </li>
+          </li> 
           })
         }
           
