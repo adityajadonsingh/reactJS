@@ -1,0 +1,25 @@
+.top-bar{
+  padding: 10px 15px;
+  border-bottom: 1px solid #dadada;
+}
+.back svg{
+  width: 13px;
+  margin-top: 3px;
+}
+.file-name span, .right-side .save{
+  color: #5e5e5e;
+  font-size: 13px;
+}
+.profile{
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FEECDC;
+  border-radius: 100%;
+}
+.profile svg{
+  width: 13px;
+  height: 13px;
+}
